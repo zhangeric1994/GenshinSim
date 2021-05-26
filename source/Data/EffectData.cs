@@ -11,7 +11,7 @@ namespace GenshinSim
     using Math;
 
 
-    public enum SkillEffectType : int
+    public enum EffectFlag : int
     {
         Damage          = 0x00000001,
         Shield          = 0x00000002,
@@ -24,10 +24,10 @@ namespace GenshinSim
 
 
     [JsonObject]
-    public class SkillEffectData : IDataTableColumnType
+    public class EffectData : IDataTableColumnType
     {
         [JsonProperty]
-        private SkillEffectType type;
+        private EffectFlag flag;
         [JsonProperty]
         private Dictionary<string, float> statistics;
         [JsonProperty]
@@ -37,7 +37,7 @@ namespace GenshinSim
 
 
         [JsonIgnore]
-        public SkillEffectType Type { get => type; }
+        public EffectFlag Type { get => flag; }
         [JsonIgnore]
         public Dictionary<string, float> Statistics { get => statistics; }
         [JsonIgnore]
@@ -53,15 +53,15 @@ namespace GenshinSim
             }
 
 
-            type = 0;
+            flag = 0;
             foreach (string s in input.Substring(leftIndex, rightIndex - leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR))
             {
-                if (!Enum.TryParse(s, true, out SkillEffectType partialType))
+                if (!Enum.TryParse(s, true, out EffectFlag partialType))
                 {
                     throw new Exception();
                 }
 
-                type = type | partialType;
+                flag = flag | partialType;
             }
 
 
@@ -120,9 +120,9 @@ namespace GenshinSim
 
         private void ParseFormulaString()
         {
-            switch (type)
+            switch (flag)
             {
-                case SkillEffectType.StatisticBoost:
+                case EffectFlag.StatisticBoost:
                     formula = MathmaticalExpression.NONE;
                     break;
 

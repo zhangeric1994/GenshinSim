@@ -9,13 +9,13 @@ namespace GenshinSim
         [JsonProperty]
         private string name;
         [JsonProperty]
-        private SkillEffectData[][] setEffects;
+        private EffectData[][] setEffects;
 
 
         [JsonIgnore]
         public string Name { get => name; }
         [JsonIgnore]
-        public SkillEffectData[][] SetEffects { get => setEffects; }
+        public EffectData[][] SetEffects { get => setEffects; }
         [JsonIgnore]
         public override string Key { get => name; }
     }
