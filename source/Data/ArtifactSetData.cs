@@ -4,6 +4,7 @@ using STK.DataTable;
 
 namespace GenshinSim
 {
+    [JsonObject]
     public class ArtifactSetData : DictionaryDataTableRow<string>
     {
         [JsonProperty]
@@ -18,10 +19,15 @@ namespace GenshinSim
         public EffectData[][] SetEffects { get => setEffects; }
         [JsonIgnore]
         public override string Key { get => name; }
+
+
+        public ArtifactSetData(DataTable dataTable, Metadata metadata) : base(dataTable, metadata) { }
     }
 
 
+    [JsonObject]
     public class ArtifactSetDataTable : DictionaryDataTable<ArtifactSetData, string>
     {
+        public ArtifactSetDataTable(string name) : base(name) { }
     }
 }

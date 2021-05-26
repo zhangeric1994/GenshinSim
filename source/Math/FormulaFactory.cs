@@ -16,8 +16,8 @@ namespace GenshinSim.Math
         static FormulaFactory()
         {
             COMMON_FORMULAS = new Dictionary<string, MathmaticalExpression> { { "ATTACK_TOTAL" , Parse("[Attack_Base]*(1+[Attack_Percentage])+[Attack_Extra]") },
-                                                                { "DEFENSE_TOTAL", Parse("[Defense_Base]*(1+[Defense_Percentage])+[Defense_Extra]") },
-                                                                { "HEALTH_TOTAL" , Parse("[Health_Base]*(1+[Health_Percentage])+[Health_Extra]") } };
+                                                                              { "DEFENSE_TOTAL", Parse("[Defense_Base]*(1+[Defense_Percentage])+[Defense_Extra]") },
+                                                                              { "HEALTH_TOTAL" , Parse("[Health_Base]*(1+[Health_Percentage])+[Health_Extra]") } };
 
             COMMON_FORMULAS.Add("STANDARD_NONCRITICAL_VALUE_ATTACK", Parse("({ATTACK_TOTAL}*[SkillMultiplier])*(1+[DamageModifier_NormalAttack]+[DamageModifier_PhysicalDamage]+[DamageModifier_All])"));
             COMMON_FORMULAS.Add("STANDARD_NONCRITICAL_VALUE_DEFENSE", Parse("({DEFENSE_TOTAL}*[SkillMultiplier])*(1+[DamageModifier_NormalAttack]+[DamageModifier_PhysicalDamage]+[DamageModifier_All])"));
@@ -40,8 +40,7 @@ namespace GenshinSim.Math
 
         public static MathmaticalExpression GetCommonFormula(string name)
         {
-            MathmaticalExpression result;
-            if (COMMON_FORMULAS.TryGetValue(name.ToUpper(), out result))
+            if (COMMON_FORMULAS.TryGetValue(name.ToUpper(), out MathmaticalExpression result))
             {
                 return result;
             }

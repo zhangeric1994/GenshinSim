@@ -1,9 +1,7 @@
 ﻿using GenshinSim;
-using Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Tools.Ribbon;
-using Newtonsoft.Json;
+using STK.DataTable;
 using System;
-using System.IO;
 using System.Windows.Forms;
 
 
@@ -29,13 +27,14 @@ namespace ExcelDataTableExporter
 
             if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
             {
-                Worksheet activeSheet = application.ActiveSheet;
+                DataTable dataTable = GenshinDataTableReader.Instance.ReadExcelWorksheet(application.ActiveSheet, out Type _);
 
-                using (StreamWriter writer = File.CreateText(string.Format("{0}/generated/{1}.json", folderBrowserDialog.SelectedPath, activeSheet.Name)))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(writer, GenshinDataTableReader.Instance.ReadExcelWorksheet(activeSheet, out Type dataTableType));
-                }
+                string directory = folderBrowserDialog.SelectedPath + "\\generated";
+                string file = string.Format("{0}\\{1}.json", directory, dataTable.name);
+
+                DataTableManager.Instance.ImportFromJSON(file);
+
+                dataTable.ExportToJSON(directory);
             }
         }
     }
