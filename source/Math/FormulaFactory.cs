@@ -9,7 +9,7 @@ namespace GenshinSim.Math
         public static readonly Dictionary<string, MathmaticalExpression> COMMON_FORMULAS;
 
 
-        private static GenshinFormulaLexer lexer = new GenshinFormulaLexer();
+        private static GenshinLexer lexer = new GenshinLexer();
         private static GenshinFormulaParser parser = new GenshinFormulaParser();
 
 

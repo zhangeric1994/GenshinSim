@@ -99,13 +99,11 @@ namespace GenshinSim
             if (rightIndex == -1)
             {
                 formulaString = input.Substring(leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS);
-                ParseFormulaString();
 
                 return input.Length - 1;
             }
 
             formulaString = input.Substring(leftIndex, rightIndex - leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS);
-            ParseFormulaString();
 
             return rightIndex - 1;
         }
@@ -114,23 +112,7 @@ namespace GenshinSim
         [OnDeserialized]
         internal void OnDeserialized(StreamingContext context)
         {
-            ParseFormulaString();
-        }
-
-
-        private void ParseFormulaString()
-        {
-            switch (flag)
-            {
-                case EffectFlag.StatisticBoost:
-                    formula = MathmaticalExpression.NONE;
-                    break;
-
-
-                default:
-                    formula = FormulaFactory.Parse(formulaString);
-                    break;
-            }
+            formula = FormulaFactory.Parse(formulaString);
         }
     }
 }

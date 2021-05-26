@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="source\Data\GenshinDataTableReader.cs" />
     <Compile Include="source\Math\FormulaFactory.cs" />
-    <Compile Include="source\Math\GenshinFormulaLexer.cs" />
+    <Compile Include="source\Math\GenshinLexer.cs" />
     <Compile Include="source\Math\GenshinFormulaParser.cs" />
     <Compile Include="source\Model\ArtifactSave.cs" />
     <Compile Include="source\Data\ArtifactSetData.cs" />

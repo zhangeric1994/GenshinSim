@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GenshinSim.Math
 {
-    public class GenshinFormulaLexer : Lexer
+    public class GenshinLexer : Lexer
     {
         public const char FORMULA_START = '{';
         public const char FORMULA_END = '}';
