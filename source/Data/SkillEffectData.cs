@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using STK.DataTable;
-using STK.Formula;
+using STK.Expression;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -33,7 +33,7 @@ namespace GenshinSim
         [JsonProperty]
         private string formulaString;
         [JsonIgnore]
-        private Formula formula;
+        private MathmaticalExpression formula;
 
 
         [JsonIgnore]
@@ -41,7 +41,7 @@ namespace GenshinSim
         [JsonIgnore]
         public Dictionary<string, float> Statistics { get => statistics; }
         [JsonIgnore]
-        public Formula Formula { get => formula; }
+        public MathmaticalExpression Formula { get => formula; }
 
 
         int IDataTableColumnType.GenerateFromSource(string input, int leftIndex)
@@ -123,7 +123,7 @@ namespace GenshinSim
             switch (type)
             {
                 case SkillEffectType.StatisticBoost:
-                    formula = Formula.NONE;
+                    formula = MathmaticalExpression.NONE;
                     break;
 
 

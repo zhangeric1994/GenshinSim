@@ -1,14 +1,14 @@
-﻿using STK.Formula;
+﻿using STK.Expression;
 using System.Collections.Generic;
 
 
 namespace GenshinSim.Math
 {
-    public class GenshinFormulaParser : FormulaParser
+    public class GenshinFormulaParser : MathmaticalExpressionParser
     {
-        protected override IEvaluable HandleUnexpectedFactor(List<FormulaToken> input, ref int index)
+        protected override IEvaluable HandleUnexpectedFactor(List<Token> input, ref int index)
         {
-            FormulaToken token = input[index];
+            Token token = input[index];
 
             if (token.type == "FORMULA")
             {

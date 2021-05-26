@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -61,21 +61,17 @@
     <Compile Include="source\Data\SkillEffectData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\STK\source\Common\Common.csproj">
-      <Project>{eafa9b40-a5ae-4357-a235-a9deb73a6bd1}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\STK\source\DataTable\DataTable.csproj">
       <Project>{f19f9f15-6b16-407c-8a51-1cba75e671f5}</Project>
       <Name>DataTable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\STK\source\Formula\Formula.csproj">
+    <ProjectReference Include="..\STK\source\Expression\Expression.csproj">
       <Project>{6f75fdc2-547c-4dc9-981d-8ad5d09bda0d}</Project>
-      <Name>Formula</Name>
+      <Name>Expression</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,16 +1,16 @@
-﻿using STK.Formula;
+﻿using STK.Expression;
 using System.Collections.Generic;
 
 
 namespace GenshinSim.Math
 {
-    public class GenshinFormulaLexer : FormulaLexer
+    public class GenshinFormulaLexer : Lexer
     {
         public const char FORMULA_START = '{';
         public const char FORMULA_END = '}';
 
 
-        protected override bool HandleUnexpectedCharacter(string input, ref List<FormulaToken> output, ref int index)
+        protected override bool HandleUnexpectedCharacter(string input, ref List<Token> output, ref int index)
         {
             if (input[index] == FORMULA_START)
             {
@@ -32,7 +32,7 @@ namespace GenshinSim.Math
                 }
 
 
-                output.Add(new FormulaToken("FORMULA", input.Substring(index, count)));
+                output.Add(new Token("FORMULA", input.Substring(index, count)));
 
 
                 index += count + 1;

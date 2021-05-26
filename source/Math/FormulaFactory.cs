@@ -1,4 +1,4 @@
-﻿using STK.Formula;
+﻿using STK.Expression;
 using System.Collections.Generic;
 
 
@@ -6,7 +6,7 @@ namespace GenshinSim.Math
 {
     public sealed class FormulaFactory
     {
-        public static readonly Dictionary<string, Formula> COMMON_FORMULAS;
+        public static readonly Dictionary<string, MathmaticalExpression> COMMON_FORMULAS;
 
 
         private static GenshinFormulaLexer lexer = new GenshinFormulaLexer();
@@ -15,7 +15,7 @@ namespace GenshinSim.Math
 
         static FormulaFactory()
         {
-            COMMON_FORMULAS = new Dictionary<string, Formula> { { "ATTACK_TOTAL" , Parse("[Attack_Base]*(1+[Attack_Percentage])+[Attack_Extra]") },
+            COMMON_FORMULAS = new Dictionary<string, MathmaticalExpression> { { "ATTACK_TOTAL" , Parse("[Attack_Base]*(1+[Attack_Percentage])+[Attack_Extra]") },
                                                                 { "DEFENSE_TOTAL", Parse("[Defense_Base]*(1+[Defense_Percentage])+[Defense_Extra]") },
                                                                 { "HEALTH_TOTAL" , Parse("[Health_Base]*(1+[Health_Percentage])+[Health_Extra]") } };
 
@@ -33,20 +33,20 @@ namespace GenshinSim.Math
         }
 
 
-        public static Formula Parse(string input)
+        public static MathmaticalExpression Parse(string input)
         {
             return parser.Parse(lexer.GenerateTokens(input));
         }
 
-        public static Formula GetCommonFormula(string name)
+        public static MathmaticalExpression GetCommonFormula(string name)
         {
-            Formula result;
+            MathmaticalExpression result;
             if (COMMON_FORMULAS.TryGetValue(name.ToUpper(), out result))
             {
                 return result;
             }
 
-            return Formula.NONE;
+            return MathmaticalExpression.NONE;
         }
     }
 }
