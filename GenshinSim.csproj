@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{87668F3B-24BA-4138-AB65-91375F50DEDC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GenshinSim</RootNamespace>
+    <AssemblyName>GenshinSim</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="source\Data\GenshinDataTableReader.cs" />
+    <Compile Include="source\Math\FormulaFactory.cs" />
+    <Compile Include="source\Math\GenshinFormulaLexer.cs" />
+    <Compile Include="source\Math\GenshinFormulaParser.cs" />
+    <Compile Include="source\Model\ArtifactSave.cs" />
+    <Compile Include="source\Data\ArtifactSetData.cs" />
+    <Compile Include="source\Model\CharacterArtifactLayout.cs" />
+    <Compile Include="source\Model\CharacterSave.cs" />
+    <Compile Include="source\Simulator\CharacterSimulator.cs" />
+    <Compile Include="source\Model\CharacterStatisticCollection.cs" />
+    <Compile Include="source\Model\Grade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="source\Data\SkillEffectData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\STK\source\Common\Common.csproj">
+      <Project>{eafa9b40-a5ae-4357-a235-a9deb73a6bd1}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STK\source\DataTable\DataTable.csproj">
+      <Project>{f19f9f15-6b16-407c-8a51-1cba75e671f5}</Project>
+      <Name>DataTable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\STK\source\Formula\Formula.csproj">
+      <Project>{6f75fdc2-547c-4dc9-981d-8ad5d09bda0d}</Project>
+      <Name>Formula</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
