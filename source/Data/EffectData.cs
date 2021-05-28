@@ -44,6 +44,17 @@ namespace GenshinSim
         public MathmaticalExpression Formula { get => formula; }
 
 
+        public EffectData() { }
+
+        public EffectData(EffectFlag flag, Dictionary<string, float> statistics, string formulaString, MathmaticalExpression formula)
+        {
+            this.flag = flag;
+            this.statistics = statistics;
+            this.formulaString = "";
+            this.formula = formula;
+        }
+
+
         int IDataTableColumnType.GenerateFromSource(string input, int leftIndex)
         {
             int rightIndex = input.IndexOf(';', leftIndex);
@@ -106,6 +117,45 @@ namespace GenshinSim
             formulaString = input.Substring(leftIndex, rightIndex - leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS);
 
             return rightIndex - 1;
+        }
+
+
+        [OnDeserialized]
+        internal void OnDeserialized(StreamingContext context)
+        {
+            formula = FormulaFactory.Parse(formulaString);
+        }
+    }
+
+
+    [JsonObject]
+    public class LeveledEffectData
+    {
+        [JsonProperty]
+        private EffectFlag flag;
+        [JsonProperty]
+        private Dictionary<string, float>[] statistics;
+        [JsonProperty]
+        private string formulaString;
+        [JsonIgnore]
+        private MathmaticalExpression formula;
+
+
+        [JsonIgnore]
+        public EffectFlag Type { get => flag; }
+        [JsonIgnore]
+        public MathmaticalExpression Formula { get => formula; }
+
+
+        public EffectData this[int level] => new EffectData(flag, statistics[level - 1], formulaString, formula);
+
+
+        public LeveledEffectData(EffectFlag flag, Dictionary<string, float>[] statistics, string formulaString)
+        {
+            this.flag = flag;
+            this.statistics = statistics;
+            this.formulaString = formulaString;
+            this.formula = FormulaFactory.Parse(formulaString);
         }
 
 

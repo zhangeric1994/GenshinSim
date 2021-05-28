@@ -16,12 +16,13 @@ namespace GenshinSim
         [JsonIgnore]
         public string Name { get => name; }
         [JsonIgnore]
-        public EffectData[][] SetEffects { get => setEffects; }
-        [JsonIgnore]
         public override string Key { get => name; }
 
 
         public ArtifactSetData(DataTable dataTable, Metadata metadata) : base(dataTable, metadata) { }
+
+
+        public EffectData[] GetSetEffects(int numPieces) => numPieces <= 0 || numPieces > 5 ? null : setEffects[numPieces - 1];
     }
 
 
