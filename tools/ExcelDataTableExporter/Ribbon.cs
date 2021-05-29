@@ -1,6 +1,7 @@
 ﻿using GenshinSim;
 using Microsoft.Office.Tools.Ribbon;
 using STK.DataTable;
+using STK.Text;
 using System;
 using System.Windows.Forms;
 
@@ -35,6 +36,21 @@ namespace ExcelDataTableExporter
                 DataTableManager.Instance.ImportFromJSON(file);
 
                 dataTable.ExportToJSON(directory);
+            }
+        }
+
+
+        private void ExportTextButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            var application = Globals.ThisAddIn.Application;
+
+
+            folderBrowserDialog.ShowNewFolderButton = true;
+            folderBrowserDialog.SelectedPath = application.ActiveWorkbook.Path;
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                TextTableExport.ExportExcelWorkbook(Globals.ThisAddIn.Application.ActiveWorkbook, folderBrowserDialog.SelectedPath + "\\generated\\text");
             }
         }
     }

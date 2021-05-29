@@ -36,32 +36,52 @@ namespace ExcelDataTableExporter
         private void InitializeComponent()
         {
             this.tab1 = this.Factory.CreateRibbonTab();
-            this.group1 = this.Factory.CreateRibbonGroup();
-            this.ExportButton = this.Factory.CreateRibbonButton();
+            this.DataTableGroup = this.Factory.CreateRibbonGroup();
+            this.ExportDataTableButton = this.Factory.CreateRibbonButton();
+            this.ExportTextButton = this.Factory.CreateRibbonButton();
+            this.TextTableGroup = this.Factory.CreateRibbonGroup();
             this.tab1.SuspendLayout();
-            this.group1.SuspendLayout();
+            this.DataTableGroup.SuspendLayout();
+            this.TextTableGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab1.Groups.Add(this.group1);
+            this.tab1.Groups.Add(this.DataTableGroup);
+            this.tab1.Groups.Add(this.TextTableGroup);
             this.tab1.Label = "GenshinSim";
             this.tab1.Name = "tab1";
             // 
-            // group1
+            // DataTableGroup
             // 
-            this.group1.Items.Add(this.ExportButton);
-            this.group1.Label = "Export";
-            this.group1.Name = "group1";
+            this.DataTableGroup.Items.Add(this.ExportDataTableButton);
+            this.DataTableGroup.Label = "Data Table";
+            this.DataTableGroup.Name = "DataTableGroup";
             // 
-            // ExportButton
+            // ExportDataTableButton
             // 
-            this.ExportButton.Label = "Export";
-            this.ExportButton.Name = "ExportButton";
-            this.ExportButton.OfficeImageId = "ExportTextFile";
-            this.ExportButton.ShowImage = true;
-            this.ExportButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportButton_Click);
+            this.ExportDataTableButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.ExportDataTableButton.Label = "Export";
+            this.ExportDataTableButton.Name = "ExportDataTableButton";
+            this.ExportDataTableButton.OfficeImageId = "ExportTextFile";
+            this.ExportDataTableButton.ShowImage = true;
+            this.ExportDataTableButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportButton_Click);
+            // 
+            // ExportTextButton
+            // 
+            this.ExportTextButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.ExportTextButton.Label = "Export";
+            this.ExportTextButton.Name = "ExportTextButton";
+            this.ExportTextButton.OfficeImageId = "ExportTextFile";
+            this.ExportTextButton.ShowImage = true;
+            this.ExportTextButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportTextButton_Click);
+            // 
+            // TextTableGroup
+            // 
+            this.TextTableGroup.Items.Add(this.ExportTextButton);
+            this.TextTableGroup.Label = "Text Table";
+            this.TextTableGroup.Name = "TextTableGroup";
             // 
             // Ribbon
             // 
@@ -71,8 +91,10 @@ namespace ExcelDataTableExporter
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            this.group1.ResumeLayout(false);
-            this.group1.PerformLayout();
+            this.DataTableGroup.ResumeLayout(false);
+            this.DataTableGroup.PerformLayout();
+            this.TextTableGroup.ResumeLayout(false);
+            this.TextTableGroup.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -80,8 +102,10 @@ namespace ExcelDataTableExporter
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton ExportButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup DataTableGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ExportDataTableButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup TextTableGroup;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton ExportTextButton;
     }
 
     partial class ThisRibbonCollection

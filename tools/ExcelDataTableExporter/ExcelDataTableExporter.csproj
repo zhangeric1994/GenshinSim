@@ -213,6 +213,10 @@
       <Project>{f19f9f15-6b16-407c-8a51-1cba75e671f5}</Project>
       <Name>DataTable</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\STK\source\Text\Text.csproj">
+      <Project>{bd7b8203-7069-45ad-b670-7fd1cbcc333d}</Project>
+      <Name>Text</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\GenshinSim.csproj">
       <Project>{87668f3b-24ba-4138-ab65-91375f50dedc}</Project>
       <Name>GenshinSim</Name>

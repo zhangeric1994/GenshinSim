@@ -1,0 +1,13 @@
+Skill.Common.SkillDamage
+Skill.Common.SkillDamage1
+Skill.Common.SkillDamage2
+Skill.Common.SkillDamage3
+Skill.Common.SkillDamage4
+Skill.Common.SkillDamage5
+Skill.Common.SkillDamage6
+Skill.Common.ChargedAttackLoopDamage
+Skill.Common.ChargedAttackFinalDamage
+Skill.Common.PlungeDamage
+Skill.Common.LowHighPlungeDamage
+Skill.Eula.Attack.Name
+Skill.Eula.Attack.Description
