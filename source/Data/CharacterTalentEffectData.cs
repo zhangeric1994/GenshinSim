@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace GenshinSim
 {
-    public class CharacterTalentEffectData : DictionaryDataTableRow<string, CharacterTalentType>, ICustomExcelReading
+    public class CharacterTalentEffectData : DictionaryDataTableRow<string, CharacterTalentType>, ICustomExcelRowReading
     {
         [JsonProperty]
         private string character;
@@ -30,7 +30,7 @@ namespace GenshinSim
         public CharacterTalentEffectData(DataTable dataTable, Metadata metadata) : base(dataTable, metadata) { }
 
 
-        void ICustomExcelReading.GenerateFromSource(Dictionary<string, object> input)
+        void ICustomExcelRowReading.GenerateFromSource(Dictionary<string, object> input)
         {
             character = (input["Character"] as string).Trim(DataTableReader.TRIMED_CHARACTERS);
 
