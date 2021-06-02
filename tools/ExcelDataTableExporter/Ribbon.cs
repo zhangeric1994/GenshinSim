@@ -1,7 +1,6 @@
 ﻿using GenshinSim;
 using Microsoft.Office.Tools.Ribbon;
 using STK.DataTable;
-using STK.Text;
 using System;
 using System.Windows.Forms;
 

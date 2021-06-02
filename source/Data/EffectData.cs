@@ -57,15 +57,69 @@ namespace GenshinSim
 
         int IDataTableColumnType.GenerateFromSource(string input, int leftIndex)
         {
-            int rightIndex = input.IndexOf(';', leftIndex);
+            string[] splitedInput;
+            if (leftIndex == -1)
+            {
+                GenerateFromSource(input.Split(DataTableReader.FIELD_SEPARATOR));
+                return -1;
+            }
+
+
+            splitedInput = new string[3] { null, null, null };
+
+
+            int rightIndex = input.IndexOf(DataTableReader.FIELD_SEPARATOR, leftIndex);
             if (rightIndex == -1)
             {
                 throw new Exception();
             }
 
+            splitedInput[0] = input.Substring(leftIndex, rightIndex - leftIndex);
 
+
+            leftIndex = rightIndex + 1;
+            rightIndex = input.IndexOf(DataTableReader.FIELD_SEPARATOR, leftIndex);
+            if (rightIndex == -1)
+            {
+                throw new Exception();
+            }
+
+            splitedInput[1] = input.Substring(leftIndex, rightIndex - leftIndex);
+
+
+            leftIndex = rightIndex + 1;
+            rightIndex = input.IndexOf(DataTableReader.ARRAY_SEPARATOR, leftIndex);
+            if (rightIndex == -1)
+            {
+                splitedInput[2] = input.Substring(leftIndex);
+
+                GenerateFromSource(splitedInput);
+
+                return input.Length - 1;
+            }
+
+            splitedInput[2] = input.Substring(leftIndex, rightIndex - leftIndex);
+
+
+            GenerateFromSource(splitedInput);
+
+
+            return rightIndex - 1;
+        }
+
+
+        [OnDeserialized]
+        internal void OnDeserialized(StreamingContext context)
+        {
+            formula = FormulaFactory.Parse(formulaString);
+            formulaString = null;
+        }
+
+
+        private void GenerateFromSource(string[] splitedInput)
+        {
             flag = 0;
-            foreach (string s in input.Substring(leftIndex, rightIndex - leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR))
+            foreach (string s in splitedInput[0].Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR))
             {
                 if (!Enum.TryParse(s, true, out EffectFlag partialType))
                 {
@@ -76,53 +130,31 @@ namespace GenshinSim
             }
 
 
-            leftIndex = rightIndex + 1;
-            rightIndex = input.IndexOf(DataTableReader.FIELD_SEPARATOR, leftIndex);
-            if (rightIndex == -1)
-            {
-                throw new Exception();
-            }
-
-
             statistics = new Dictionary<string, float>();
-            foreach (string s in input.Substring(leftIndex, rightIndex - leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR))
+            if (splitedInput[1] != null)
             {
-                string[] ss = s.Split(DataTableReader.DESCRIPTOR);
-                if (ss.Length != 2)
+                foreach (string s in splitedInput[1].Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR))
                 {
-                    throw new Exception();
+                    string[] ss = s.Split(DataTableReader.DESCRIPTOR);
+                    if (ss.Length != 2)
+                    {
+                        throw new Exception();
+                    }
+
+
+                    if (!float.TryParse(ss[1], out float v))
+                    {
+                        throw new Exception();
+                    }
+
+                    statistics.Add(ss[0], v);
                 }
-
-
-                if (!float.TryParse(ss[1], out float v))
-                {
-                    throw new Exception();
-                }
-
-                statistics.Add(ss[0], v);
             }
 
 
-            leftIndex = rightIndex + 1;
-            rightIndex = input.IndexOf(DataTableReader.ARRAY_SEPARATOR, leftIndex);
+            formulaString = splitedInput[2].Trim(DataTableReader.TRIMED_CHARACTERS);
 
 
-            if (rightIndex == -1)
-            {
-                formulaString = input.Substring(leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS);
-
-                return input.Length - 1;
-            }
-
-            formulaString = input.Substring(leftIndex, rightIndex - leftIndex).Trim(DataTableReader.TRIMED_CHARACTERS);
-
-            return rightIndex - 1;
-        }
-
-
-        [OnDeserialized]
-        internal void OnDeserialized(StreamingContext context)
-        {
             formula = FormulaFactory.Parse(formulaString);
         }
     }

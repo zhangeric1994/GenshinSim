@@ -23,7 +23,7 @@ namespace GenshinSim
         [JsonIgnore]
         public EffectData this[int level] => effectData[level];
 
-        public override string Key1 => character;
+        public override string Key => character;
         public override CharacterTalentType Key2 => type;
 
 

@@ -49,7 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="source\Data\CharacterData.cs" />
+    <Compile Include="source\Data\CharacterTalentData.cs" />
     <Compile Include="source\Data\CharacterTalentEffectData.cs" />
     <Compile Include="source\Data\GenshinDataTableReader.cs" />
     <Compile Include="source\Math\FormulaFactory.cs" />
