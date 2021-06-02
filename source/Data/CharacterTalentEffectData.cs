@@ -48,6 +48,14 @@ namespace GenshinSim
             }
 
 
+            string[] statisticTypes = effectDefinitions[1].Split(DataTableReader.ARRAY_SEPARATOR);
+            int numStatistics = statisticTypes.Length;
+            if (numStatistics == 0)
+            {
+                throw new Exception();
+            }
+
+
             EffectFlag flag = 0;
             foreach (string s in effectDefinitions[0].Split(DataTableReader.ARRAY_SEPARATOR))
             {
@@ -60,20 +68,15 @@ namespace GenshinSim
             }
 
 
-            string[] statisticTypes = effectDefinitions[1].Split(DataTableReader.ARRAY_SEPARATOR);
-            int numStatistics = statisticTypes.Length;
-            if (numStatistics == 0)
-            {
-                throw new Exception();
-            }
-
-            const int N = 15;
+            List<object> cellValues = input["EffectStatistics"] as List<object>;
+            int N = cellValues.Count;
             Dictionary<string, float>[] statistics = new Dictionary<string, float>[N];
-            for (int level = 1; level <= N; ++level)
+
+            for (int i = 0; i < N; ++i)
             {
                 Dictionary<string, float> dictionary = new Dictionary<string, float>();
 
-                object cellValue = input["Level" + level];
+                object cellValue = cellValues[i];
                 if (cellValue is string)
                 {
                     string[] statisticValues = (cellValue as string).Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR);
@@ -82,11 +85,11 @@ namespace GenshinSim
                         throw new Exception();
                     }
 
-                    for (int i = 0; i < numStatistics; ++i)
+                    for (int j = 0; j < numStatistics; ++j)
                     {
-                        if (float.TryParse(statisticValues[i], out float statisticValue))
+                        if (float.TryParse(statisticValues[j], out float statisticValue))
                         {
-                            dictionary.Add(statisticTypes[i], statisticValue);
+                            dictionary.Add(statisticTypes[j], statisticValue);
                         }
                         else
                         {
@@ -109,7 +112,7 @@ namespace GenshinSim
                 }
 
 
-                statistics[level - 1] = dictionary;
+                statistics[i] = dictionary;
             }
 
 

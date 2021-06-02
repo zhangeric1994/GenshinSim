@@ -39,7 +39,8 @@
             },
             "formulaString": ""
           }
-        ]
+        ],
+        null
       ],
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
@@ -74,7 +75,8 @@
             },
             "formulaString": ""
           }
-        ]
+        ],
+        null
       ],
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
