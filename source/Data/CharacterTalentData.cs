@@ -16,6 +16,7 @@ namespace GenshinSim
     }
 
 
+    [JsonObject]
     public sealed class CharacterTalentEffectText : IDataTableColumnType
     {
         [JsonProperty]
@@ -119,7 +120,7 @@ namespace GenshinSim
         public override CharacterTalentType Key2 => type;
 
 
-        public CharacterTalentData(DataTable dataTable, Metadata metadata) : base(dataTable, metadata) { }
+        public CharacterTalentData(Metadata metadata) : base(metadata) { }
 
 
         [OnDeserialized]

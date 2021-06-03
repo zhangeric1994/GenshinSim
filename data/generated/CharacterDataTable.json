@@ -1,0 +1,29 @@
+{
+  "$type": "GenshinSim.CharacterDataTable, GenshinSim",
+  "rows": [
+    {
+      "$type": "GenshinSim.CharacterData, GenshinSim",
+      "name": "Eula",
+      "displayName": "Eula.Name",
+      "elementType": 5,
+      "weaponType": 1,
+      "passiveTalentEffects": [
+        null,
+        null
+      ],
+      "constellationEffects": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "metadata": {
+        "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
+        "rowIndex": 3
+      }
+    }
+  ],
+  "name": "CharacterDataTable"
+}

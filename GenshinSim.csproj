@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="source\Data\CharacterData.cs" />
     <Compile Include="source\Data\CharacterTalentData.cs" />
     <Compile Include="source\Data\CharacterTalentEffectData.cs" />
     <Compile Include="source\Data\GenshinDataTableReader.cs" />
@@ -59,6 +60,8 @@
     <Compile Include="source\Data\ArtifactSetData.cs" />
     <Compile Include="source\Model\CharacterArtifactLayout.cs" />
     <Compile Include="source\Model\CharacterSave.cs" />
+    <Compile Include="source\Model\ElementType.cs" />
+    <Compile Include="source\Model\WeaponSave.cs" />
     <Compile Include="source\Simulator\CharacterSimulator.cs" />
     <Compile Include="source\Model\CharacterStatisticCollection.cs" />
     <Compile Include="source\Model\Grade.cs" />

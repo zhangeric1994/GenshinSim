@@ -75,8 +75,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 3
-      },
-      "uid": 33554432
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -152,8 +151,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 4
-      },
-      "uid": 67108864
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -229,8 +227,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 5
-      },
-      "uid": 134217728
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -306,8 +303,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 6
-      },
-      "uid": 268435456
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -383,8 +379,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 7
-      },
-      "uid": 536870912
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -460,8 +455,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 8
-      },
-      "uid": 1073741824
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -537,8 +531,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 9
-      },
-      "uid": -2147483648
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -614,8 +607,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 10
-      },
-      "uid": 1
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -691,8 +683,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 11
-      },
-      "uid": 2
+      }
     },
     {
       "$type": "GenshinSim.CharacterTalentEffectData, GenshinSim",
@@ -768,10 +759,8 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 12
-      },
-      "uid": 4
+      }
     }
   ],
-  "name": "CharacterTalentEffectDataTable",
-  "uid": 1
+  "name": "CharacterTalentEffectDataTable"
 }

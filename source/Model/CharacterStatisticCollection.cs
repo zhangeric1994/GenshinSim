@@ -25,14 +25,16 @@ namespace GenshinSim
         DamageModifier_NormalAttack,
         DamageModifier_ChargedAttack,
         DamageModifier_PlungeAttack,
+
         DamageModifier_ElementalSkill,
         DamageModifier_ElementalBurst,
+
         DamageModifier_PyroDamage,
         DamageModifier_HydroDamage,
         DamageModifier_DendroDamage,
         DamageModifier_ElectroDamage,
         DamageModifier_AnemoDamage,
-        DamageModifier_CyroDamage,
+        DamageModifier_CryoDamage,
         DamageModifier_GeoDamage,
         DamageModifier_PhysicalDamage,
         DamageModifier_All,

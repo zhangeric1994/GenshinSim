@@ -27,7 +27,7 @@ namespace GenshinSim
         public override CharacterTalentType Key2 => type;
 
 
-        public CharacterTalentEffectData(DataTable dataTable, Metadata metadata) : base(dataTable, metadata) { }
+        public CharacterTalentEffectData(Metadata metadata) : base(metadata) { }
 
 
         void ICustomExcelRowReading.GenerateFromSource(Dictionary<string, object> input)
@@ -70,6 +70,7 @@ namespace GenshinSim
 
             List<object> cellValues = input["EffectStatistics"] as List<object>;
             int N = cellValues.Count;
+
             Dictionary<string, float>[] statistics = new Dictionary<string, float>[N];
 
             for (int i = 0; i < N; ++i)

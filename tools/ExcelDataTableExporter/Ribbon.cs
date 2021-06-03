@@ -14,6 +14,7 @@ namespace ExcelDataTableExporter
 
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
+            
         }
 
 
@@ -30,9 +31,6 @@ namespace ExcelDataTableExporter
                 DataTable dataTable = GenshinDataTableReader.Instance.ReadExcelWorksheet(application.ActiveSheet, out Type _);
 
                 string directory = folderBrowserDialog.SelectedPath + "\\generated";
-                string file = string.Format("{0}\\{1}.json", directory, dataTable.name);
-
-                DataTableManager.Instance.ImportFromJSON(file);
 
                 dataTable.ExportToJSON(directory);
             }

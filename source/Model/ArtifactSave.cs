@@ -185,7 +185,7 @@ namespace GenshinSim
                                                                                                                      CharacterStatistic.DamageModifier_DendroDamage,
                                                                                                                      CharacterStatistic.DamageModifier_ElectroDamage,
                                                                                                                      CharacterStatistic.DamageModifier_AnemoDamage,
-                                                                                                                     CharacterStatistic.DamageModifier_CyroDamage,
+                                                                                                                     CharacterStatistic.DamageModifier_CryoDamage,
                                                                                                                      CharacterStatistic.DamageModifier_GeoDamage,
                                                                                                                      CharacterStatistic.DamageModifier_PhysicalDamage,
                                                                                                                      CharacterStatistic.ElementalMastery

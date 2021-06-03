@@ -45,8 +45,7 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 3
-      },
-      "uid": 33554432
+      }
     },
     {
       "$type": "GenshinSim.ArtifactSetData, GenshinSim",
@@ -81,10 +80,8 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 4
-      },
-      "uid": 67108864
+      }
     }
   ],
-  "name": "ArtifactSetDataTable",
-  "uid": 1
+  "name": "ArtifactSetDataTable"
 }

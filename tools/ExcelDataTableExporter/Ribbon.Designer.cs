@@ -38,8 +38,8 @@ namespace ExcelDataTableExporter
             this.tab1 = this.Factory.CreateRibbonTab();
             this.DataTableGroup = this.Factory.CreateRibbonGroup();
             this.ExportDataTableButton = this.Factory.CreateRibbonButton();
-            this.ExportTextButton = this.Factory.CreateRibbonButton();
             this.TextTableGroup = this.Factory.CreateRibbonGroup();
+            this.ExportTextButton = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.DataTableGroup.SuspendLayout();
             this.TextTableGroup.SuspendLayout();
@@ -68,6 +68,12 @@ namespace ExcelDataTableExporter
             this.ExportDataTableButton.ShowImage = true;
             this.ExportDataTableButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportButton_Click);
             // 
+            // TextTableGroup
+            // 
+            this.TextTableGroup.Items.Add(this.ExportTextButton);
+            this.TextTableGroup.Label = "Text Table";
+            this.TextTableGroup.Name = "TextTableGroup";
+            // 
             // ExportTextButton
             // 
             this.ExportTextButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -76,12 +82,6 @@ namespace ExcelDataTableExporter
             this.ExportTextButton.OfficeImageId = "ExportTextFile";
             this.ExportTextButton.ShowImage = true;
             this.ExportTextButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ExportTextButton_Click);
-            // 
-            // TextTableGroup
-            // 
-            this.TextTableGroup.Items.Add(this.ExportTextButton);
-            this.TextTableGroup.Label = "Text Table";
-            this.TextTableGroup.Name = "TextTableGroup";
             // 
             // Ribbon
             // 

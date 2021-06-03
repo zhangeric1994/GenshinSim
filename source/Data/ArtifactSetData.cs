@@ -19,7 +19,7 @@ namespace GenshinSim
         public override string Key { get => name; }
 
 
-        public ArtifactSetData(DataTable dataTable, Metadata metadata) : base(dataTable, metadata) { }
+        public ArtifactSetData(Metadata metadata) : base(metadata) { }
 
 
         public EffectData[] GetSetEffects(int numPieces) => numPieces <= 0 || numPieces > 5 ? null : setEffects[numPieces - 1];

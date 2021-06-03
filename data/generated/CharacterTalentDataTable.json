@@ -57,10 +57,8 @@
       "metadata": {
         "$type": "STK.DataTable.DataTableRow+Metadata, STK.DataTable",
         "rowIndex": 3
-      },
-      "uid": 33554432
+      }
     }
   ],
-  "name": "CharacterTalentDataTable",
-  "uid": 1
+  "name": "CharacterTalentDataTable"
 }
