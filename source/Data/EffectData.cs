@@ -16,7 +16,7 @@ namespace GenshinSim
         Damage          = 0x00000001,
         Shield          = 0x00000002,
         Healing         = 0x00000004,
-        StatisticBoost  = 0x00000008,
+        StatisticChange = 0x00000008,
 
         Triggerable     = 0x00000100,
         Stackable       = 0x00000200,

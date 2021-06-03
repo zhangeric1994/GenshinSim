@@ -78,23 +78,36 @@ namespace GenshinSim
                 Dictionary<string, float> dictionary = new Dictionary<string, float>();
 
                 object cellValue = cellValues[i];
+
                 if (cellValue is string)
                 {
-                    string[] statisticValues = (cellValue as string).Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR);
-                    if (statisticValues.Length != numStatistics)
-                    {
-                        throw new Exception();
-                    }
+                    string s = cellValue as string;
 
-                    for (int j = 0; j < numStatistics; ++j)
+                    if (string.IsNullOrEmpty(s))
                     {
-                        if (float.TryParse(statisticValues[j], out float statisticValue))
+                        for (int j = 0; j < numStatistics; ++j)
                         {
-                            dictionary.Add(statisticTypes[j], statisticValue);
+                            dictionary.Add(statisticTypes[j], 0);
                         }
-                        else
+                    }
+                    else
+                    {
+                        string[] statisticValues = s.Trim(DataTableReader.TRIMED_CHARACTERS).Split(DataTableReader.ARRAY_SEPARATOR);
+                        if (statisticValues.Length != numStatistics)
                         {
                             throw new Exception();
+                        }
+
+                        for (int j = 0; j < numStatistics; ++j)
+                        {
+                            if (float.TryParse(statisticValues[j], out float statisticValue))
+                            {
+                                dictionary.Add(statisticTypes[j], statisticValue);
+                            }
+                            else
+                            {
+                                throw new Exception();
+                            }
                         }
                     }
                 }
@@ -106,6 +119,13 @@ namespace GenshinSim
                     }
 
                     dictionary.Add(statisticTypes[0], (float)(double)cellValue);
+                }
+                else if (cellValue == null)
+                {
+                    for (int j = 0; j < numStatistics; ++j)
+                    {
+                        dictionary.Add(statisticTypes[j], 0);
+                    }
                 }
                 else
                 {

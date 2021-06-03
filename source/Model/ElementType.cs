@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace GenshinSim
+﻿namespace GenshinSim
 {
     public enum ElementType : int
     {
-        Pyro,
-        Hydro,
-        Dendro,
-        Electro,
-        Anemo,
-        Cryo,
-        Geo
+        Physical    = -1,
+        Pyro        = 0,
+        Hydro       = 1,
+        Dendro      = 2,
+        Electro     = 3,
+        Anemo       = 4,
+        Cryo        = 5,
+        Geo         = 6
     }
 }

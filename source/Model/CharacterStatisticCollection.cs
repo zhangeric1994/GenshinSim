@@ -25,7 +25,6 @@ namespace GenshinSim
         DamageModifier_NormalAttack,
         DamageModifier_ChargedAttack,
         DamageModifier_PlungeAttack,
-
         DamageModifier_ElementalSkill,
         DamageModifier_ElementalBurst,
 
